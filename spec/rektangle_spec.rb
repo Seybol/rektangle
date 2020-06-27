@@ -53,5 +53,18 @@ RSpec.describe './rektangle' do
       it { expect(output).to include('Help Menu') }
       it { expect(output).to include("Rektangle by Seybol") }
     end
+    context 'when correct values are given' do
+      let(:command) { 'ruby ./rektangle.rb 5 4 S E Y B O' }
+      let(:expected) do
+        expected = <<~STRING
+          SOOOE
+          O   O
+          O   O
+          BOOOY
+        STRING
+        expected
+      end
+      it { expect(output).to include(expected) }
+    end
   end
 end

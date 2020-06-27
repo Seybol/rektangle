@@ -29,7 +29,7 @@ begin
   shapes.each { |shape| raise ShapeLengthIncorrectError if shape.length != 1 }
   raise ShapesNumberIncorrectError unless shapes.empty? || shapes.length == 5
 
-  rektangle = Rektangle.new(width, height)
+  rektangle = Rektangle.new(width, height, *shapes)
   puts rektangle.draw
 rescue ArgumentError => e
   puts "#{e.class} -> #{e.message}"
