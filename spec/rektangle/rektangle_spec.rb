@@ -100,5 +100,9 @@ RSpec.shared_examples 'a rectangle' do |*shapes|
 end
 
 RSpec.describe Rektangle do
+  it_behaves_like 'a rectangle', 'A', 'B', 'C', 'D', '.'
   it_behaves_like 'a rectangle', '1', '2', '3', '4', 'o'
+  it_behaves_like 'a rectangle', 'q', 'w', 'e', 'r', 't'
+  it_behaves_like 'a rectangle', 'o', 'o', 'o', 'o', '-'
+  it_behaves_like 'a rectangle', "/", "\\", "/", "\\", "*"
 end
