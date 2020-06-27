@@ -31,5 +31,27 @@ RSpec.describe './rektangle' do
       let(:command) { 'ruby ./rektangle.rb 12 9001' }
       it { expect(output).to include('ArgumentTooBigError') }
     end
+    context 'when width is over 9000' do
+      let(:command) { 'ruby ./rektangle.rb 9001 23' }
+      it { expect(output).to include('ArgumentTooBigError') }
+    end
+    context 'when 3 shapes are given' do
+      let(:command) { 'ruby ./rektangle.rb 4 5 o o o' }
+      it { expect(output).to include('ShapesNumberIncorrectError') }
+    end
+    context 'when 3 shapes are given' do
+      let(:command) { 'ruby ./rektangle.rb 4 5 o o o ss a' }
+      it { expect(output).to include('ShapeLengthIncorrectError') }
+    end
+    context 'when -h option is given' do
+      let(:command) { 'ruby ./rektangle.rb -h' }
+      it { expect(output).to include('Help Menu') }
+      it { expect(output).to include("Rektangle by Seybol") }
+    end
+    context 'when --help option is given' do
+      let(:command) { 'ruby ./rektangle.rb -h' }
+      it { expect(output).to include('Help Menu') }
+      it { expect(output).to include("Rektangle by Seybol") }
+    end
   end
 end
